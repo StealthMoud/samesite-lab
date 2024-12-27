@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Site</title>
+</head>
+<body>
+<?php include '../php/session_check.php'; ?>
+<h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+<ul>
+    <li><a href="set_cookie.html">Set Cookies</a></li>
+    <li><a href="get_cookies.html">View Cookies</a></li>
+    <li><a href="delete_cookies.html">Delete Cookies</a></li>
+</ul>
+</body>
+</html>
