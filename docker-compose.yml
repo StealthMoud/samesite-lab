@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  main-site:
+    build:
+      context: ./main-site
+    ports:
+      - "8081:80"
+    networks:
+      - lab-network
+    container_name: main-site
+
+  same-site:
+    build:
+      context: ./same-site
+    ports:
+      - "8082:80"
+    networks:
+      - lab-network
+    container_name: same-site
+
+  cross-site:
+    build:
+      context: ./cross-site
+    ports:
+      - "8083:80"
+    networks:
+      - lab-network
+    container_name: cross-site
+
+networks:
+  lab-network:
+    driver: bridge
