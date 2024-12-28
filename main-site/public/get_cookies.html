@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Cookies</title>
+</head>
+<body>
+<?php include '../php/session_check.php'; ?>
+<h1>Cookies Information</h1>
+<?php
+$cookies = $_COOKIE;
+foreach ($cookies as $name => $value) {
+echo "$name: $value<br>";
+?>
+</body>
+</html>

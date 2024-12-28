@@ -4,29 +4,20 @@ services:
     build:
       context: ./main-site
     ports:
-      - "8081:80"
-    networks:
-      - lab-network
-    container_name: main-site
-
-  same-site:
+      - "8080:80"
+    volumes:
+      - ./main-site/public:/var/www/html
+  sub-main-site:
     build:
-      context: ./same-site
+      context: ./sub.main-site
     ports:
-      - "8082:80"
-    networks:
-      - lab-network
-    container_name: same-site
-
+      - "8081:80"
+    volumes:
+      - ./sub.main-site/public:/var/www/html
   cross-site:
     build:
       context: ./cross-site
     ports:
-      - "8083:80"
-    networks:
-      - lab-network
-    container_name: cross-site
-
-networks:
-  lab-network:
-    driver: bridge
+      - "8082:80"
+    volumes:
+      - ./cross-site/public:/var/www/html
